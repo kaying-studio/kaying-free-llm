@@ -9,6 +9,10 @@ import os
 import requests
 from datetime import datetime
 from typing import Dict, List, Any
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class ModelFetcher:
     def __init__(self):
