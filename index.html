@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日免费大模型 - Free LLM Models Daily</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .model-card {
+            transition: all 0.3s ease;
+        }
+        .model-card:hover {
+            transform: translateY(-2px);
+        }
+        .provider-badge {
+            transition: all 0.2s ease;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <i data-lucide="cpu" class="w-8 h-8 text-blue-600 mr-3"></i>
+                    <h1 class="text-xl font-bold text-gray-900">每日免费大模型</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="lastUpdate" class="text-sm text-gray-500"></span>
+                    <button id="refreshBtn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <i data-lucide="refresh-cw" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Stats Section -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-blue-100 rounded-lg">
+                        <i data-lucide="database" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">总模型数</p>
+                        <p id="totalCount" class="text-2xl font-bold text-gray-900">-</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-green-100 rounded-lg">
+                        <i data-lucide="globe" class="w-6 h-6 text-green-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">OpenRouter</p>
+                        <p id="openrouterCount" class="text-2xl font-bold text-gray-900">-</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-purple-100 rounded-lg">
+                        <i data-lucide="zap" class="w-6 h-6 text-purple-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">硅基智能</p>
+                        <p id="siliconflowCount" class="text-2xl font-bold text-gray-900">-</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-orange-100 rounded-lg">
+                        <i data-lucide="brain" class="w-6 h-6 text-orange-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">智谱AI</p>
+                        <p id="zhipuCount" class="text-2xl font-bold text-gray-900">-</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="bg-white rounded-lg shadow p-6 mb-8">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="flex-1">
+                    <div class="relative">
+                        <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="搜索模型名称..." 
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                    </div>
+                </div>
+                
+                <div class="flex gap-2">
+                    <select id="providerFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">所有提供商</option>
+                        <option value="OpenRouter">OpenRouter</option>
+                        <option value="SiliconFlow">硅基智能</option>
+                        <option value="Zhipu AI">智谱AI</option>
+                    </select>
+                    
+                    <select id="sortBy" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="name">按名称排序</option>
+                        <option value="provider">按提供商排序</option>
+                        <option value="context">按上下文长度排序</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Grid -->
+        <section id="modelsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Models will be dynamically loaded here -->
+        </section>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="text-center py-12">
+            <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto text-blue-600 mb-4"></i>
+            <p class="text-gray-600">正在加载免费模型数据...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden text-center py-12">
+            <i data-lucide="alert-circle" class="w-8 h-8 mx-auto text-red-600 mb-4"></i>
+            <p class="text-gray-600 mb-4">加载模型数据失败</p>
+            <button id="retryBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                重试
+            </button>
+        </div>
+    </main>
+
+    <script>
+        class ModelViewer {
+            constructor() {
+                this.models = [];
+                this.filteredModels = [];
+                this.init();
+            }
+
+            async init() {
+                await this.loadModels();
+                this.setupEventListeners();
+                this.updateStats();
+                this.renderModels();
+                lucide.createIcons();
+            }
+
+            async loadModels() {
+                try {
+                    const response = await fetch('data/free_models.json');
+                    if (!response.ok) {
+                        throw new Error('Failed to load models data');
+                    }
+                    const data = await response.json();
+                    this.models = data.models || [];
+                    this.filteredModels = [...this.models];
+                    
+                    // Update last update time
+                    const updateTime = new Date(data.updated_at).toLocaleString('zh-CN');
+                    document.getElementById('lastUpdate').textContent = `更新时间: ${updateTime}`;
+                    
+                    // Hide loading state
+                    document.getElementById('loadingState').classList.add('hidden');
+                } catch (error) {
+                    console.error('Error loading models:', error);
+                    document.getElementById('loadingState').classList.add('hidden');
+                    document.getElementById('errorState').classList.remove('hidden');
+                }
+            }
+
+            setupEventListeners() {
+                // Search
+                document.getElementById('searchInput').addEventListener('input', (e) => {
+                    this.filterModels();
+                });
+
+                // Provider filter
+                document.getElementById('providerFilter').addEventListener('change', () => {
+                    this.filterModels();
+                });
+
+                // Sort
+                document.getElementById('sortBy').addEventListener('change', () => {
+                    this.sortModels();
+                });
+
+                // Refresh button
+                document.getElementById('refreshBtn').addEventListener('click', () => {
+                    location.reload();
+                });
+
+                // Retry button
+                document.getElementById('retryBtn').addEventListener('click', () => {
+                    location.reload();
+                });
+            }
+
+            filterModels() {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                const providerFilter = document.getElementById('providerFilter').value;
+
+                this.filteredModels = this.models.filter(model => {
+                    const matchesSearch = model.name.toLowerCase().includes(searchTerm) ||
+                                        (model.description && model.description.toLowerCase().includes(searchTerm));
+                    const matchesProvider = !providerFilter || model.provider === providerFilter;
+                    
+                    return matchesSearch && matchesProvider;
+                });
+
+                this.sortModels();
+                this.renderModels();
+            }
+
+            sortModels() {
+                const sortBy = document.getElementById('sortBy').value;
+                
+                this.filteredModels.sort((a, b) => {
+                    switch (sortBy) {
+                        case 'name':
+                            return a.name.localeCompare(b.name);
+                        case 'provider':
+                            return a.provider.localeCompare(b.provider);
+                        case 'context':
+                            return (b.context_length || 0) - (a.context_length || 0);
+                        default:
+                            return 0;
+                    }
+                });
+
+                this.renderModels();
+            }
+
+            updateStats() {
+                const stats = {
+                    total: this.models.length,
+                    openrouter: this.models.filter(m => m.provider === 'OpenRouter').length,
+                    siliconflow: this.models.filter(m => m.provider === 'SiliconFlow').length,
+                    zhipu: this.models.filter(m => m.provider === 'Zhipu AI').length
+                };
+
+                document.getElementById('totalCount').textContent = stats.total;
+                document.getElementById('openrouterCount').textContent = stats.openrouter;
+                document.getElementById('siliconflowCount').textContent = stats.siliconflow;
+                document.getElementById('zhipuCount').textContent = stats.zhipu;
+            }
+
+            renderModels() {
+                const container = document.getElementById('modelsContainer');
+                container.innerHTML = '';
+
+                if (this.filteredModels.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-full text-center py-12">
+                            <i data-lucide="search-x" class="w-8 h-8 mx-auto text-gray-400 mb-4"></i>
+                            <p class="text-gray-600">没有找到匹配的模型</p>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                    return;
+                }
+
+                this.filteredModels.forEach(model => {
+                    const card = this.createModelCard(model);
+                    container.appendChild(card);
+                });
+
+                lucide.createIcons();
+            }
+
+            createModelCard(model) {
+                const card = document.createElement('div');
+                card.className = 'model-card bg-white rounded-lg shadow hover:shadow-lg p-6 fade-in';
+                
+                const providerColors = {
+                    'OpenRouter': 'bg-green-100 text-green-800',
+                    'SiliconFlow': 'bg-purple-100 text-purple-800',
+                    'Zhipu AI': 'bg-orange-100 text-orange-800'
+                };
+
+                const providerColor = providerColors[model.provider] || 'bg-gray-100 text-gray-800';
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-1">${model.name}</h3>
+                            <span class="provider-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${providerColor}">
+                                ${model.provider}
+                            </span>
+                        </div>
+                        <button class="copy-btn p-2 hover:bg-gray-100 rounded-lg transition-colors" data-model-id="${model.id}">
+                            <i data-lucide="copy" class="w-4 h-4 text-gray-500"></i>
+                        </button>
+                    </div>
+                    
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                        ${model.description || '暂无描述'}
+                    </p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i data-lucide="layers" class="w-4 h-4 text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">上下文长度: </span>
+                            <span class="font-medium text-gray-900 ml-1">
+                                ${model.context_length ? model.context_length.toLocaleString() : '未知'}
+                            </span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm">
+                            <i data-lucide="tag" class="w-4 h-4 text-gray-400 mr-2"></i>
+                            <span class="text-gray-600">模型ID: </span>
+                            <span class="font-mono text-xs text-gray-700 ml-1 truncate" title="${model.id}">
+                                ${model.id}
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                // Add copy functionality
+                const copyBtn = card.querySelector('.copy-btn');
+                copyBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(model.id).then(() => {
+                        const icon = copyBtn.querySelector('i');
+                        icon.setAttribute('data-lucide', 'check');
+                        lucide.createIcons();
+                        
+                        setTimeout(() => {
+                            icon.setAttribute('data-lucide', 'copy');
+                            lucide.createIcons();
+                        }, 2000);
+                    });
+                });
+
+                return card;
+            }
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            new ModelViewer();
+        });
+    </script>
+</body>
+</html>

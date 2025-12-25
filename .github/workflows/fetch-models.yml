@@ -1,0 +1,40 @@
+name: Fetch Free Models Daily
+
+on:
+  schedule:
+    # Run daily at 5:00 AM UTC (1:00 PM Beijing time)
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-models:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        
+    - name: Fetch free models
+      env:
+        OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        SILICONFLOW_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+        ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+      run: |
+        python fetch_models.py
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/
+        git diff --staged --quiet || git commit -m "Update free models data - $(date +'%Y-%m-%d')"
+        git push
