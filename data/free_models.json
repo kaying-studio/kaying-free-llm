@@ -1,49 +1,7 @@
 {
-  "updated_at": "2026-01-05T05:41:22.423273",
-  "total_count": 33,
+  "updated_at": "2026-01-06T05:33:28.881596",
+  "total_count": 32,
   "models": [
-    {
-      "provider": "OpenRouter",
-      "id": "allenai/olmo-3-32b-think:free",
-      "name": "AllenAI: Olmo 3 32B Think (free)",
-      "description": "Olmo 3 32B Think is a large-scale, 32-billion-parameter model purpose-built for deep reasoning, complex logic chains and advanced instruction-following scenarios. Its capacity enables strong performance on demanding evaluation tasks and highly nuanced conversational reasoning. Developed by Ai2 under the Apache 2.0 license, Olmo 3 32B Think embodies the Olmo initiative’s commitment to openness, offering full transparency across weights, code and training methodology.",
-      "context_length": 65536,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
-      },
-      "top_provider": {
-        "context_length": 65536,
-        "max_completion_tokens": 65536,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
-      "id": "allenai/olmo-3.1-32b-think:free",
-      "name": "AllenAI: Olmo 3.1 32B Think (free)",
-      "description": "Olmo 3.1 32B Think is a large-scale, 32-billion-parameter model designed for deep reasoning, complex multi-step logic, and advanced instruction following. Building on the Olmo 3 series, version 3.1 delivers refined reasoning behavior and stronger performance across demanding evaluations and nuanced conversational tasks. Developed by Ai2 under the Apache 2.0 license, Olmo 3.1 32B Think continues the Olmo initiative’s commitment to openness, providing full transparency across model weights, code, and training methodology.",
-      "context_length": 65536,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
-      },
-      "top_provider": {
-        "context_length": 65536,
-        "max_completion_tokens": 65536,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
     {
       "provider": "OpenRouter",
       "id": "arcee-ai/trinity-mini:free",
@@ -228,7 +186,7 @@
       },
       "top_provider": {
         "context_length": 256000,
-        "max_completion_tokens": 32768,
+        "max_completion_tokens": 128000,
         "is_moderated": false
       },
       "created_at": null
@@ -630,6 +588,27 @@
       "top_provider": {
         "context_length": 163840,
         "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "created_at": null
+    },
+    {
+      "provider": "OpenRouter",
+      "id": "tngtech/tng-r1t-chimera:free",
+      "name": "TNG: R1T Chimera (free)",
+      "description": "TNG-R1T-Chimera is an experimental LLM with a faible for creative storytelling and character interaction. It is a derivate of the original TNG/DeepSeek-R1T-Chimera released in April 2025 and is available exclusively via Chutes and OpenRouter.\n\nCharacteristics and improvements include:\n\nWe think that it has a creative and pleasant personality.\nIt has a preliminary EQ-Bench3 value of about 1305.\nIt is quite a bit more intelligent than the original, albeit a slightly slower.\nIt is much more think-token consistent, i.e. reasoning and answer blocks are properly delineated.\nTool calling is much improved.\n\nTNG Tech, the model authors, ask that users follow the careful guidelines that Microsoft has created for their \"MAI-DS-R1\" DeepSeek-based model. These guidelines are available on Hugging Face (https://huggingface.co/microsoft/MAI-DS-R1).",
+      "context_length": 163840,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "request": "0",
+        "image": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "top_provider": {
+        "context_length": 163840,
+        "max_completion_tokens": 65536,
         "is_moderated": false
       },
       "created_at": null
