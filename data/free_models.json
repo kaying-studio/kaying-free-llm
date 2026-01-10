@@ -1,7 +1,28 @@
 {
-  "updated_at": "2026-01-09T05:33:58.839931",
+  "updated_at": "2026-01-10T05:29:54.284021",
   "total_count": 32,
   "models": [
+    {
+      "provider": "OpenRouter",
+      "id": "allenai/molmo-2-8b:free",
+      "name": "AllenAI: Molmo2 8B (free)",
+      "description": "Molmo2-8B is an open vision-language model developed by the Allen Institute for AI (Ai2) as part of the Molmo2 family, supporting image, video, and multi-image understanding and grounding. It is based on Qwen3-8B and uses SigLIP 2 as its vision backbone, outperforming other open-weight, open-data models on short videos, counting, and captioning, while remaining competitive on long-video tasks.",
+      "context_length": 36864,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "request": "0",
+        "image": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "top_provider": {
+        "context_length": 36864,
+        "max_completion_tokens": 36864,
+        "is_moderated": false
+      },
+      "created_at": null
+    },
     {
       "provider": "OpenRouter",
       "id": "arcee-ai/trinity-mini:free",
@@ -397,29 +418,6 @@
       "top_provider": {
         "context_length": 128000,
         "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
-      "id": "nex-agi/deepseek-v3.1-nex-n1:free",
-      "name": "Nex AGI: DeepSeek V3.1 Nex N1 (free)",
-      "description": "DeepSeek V3.1 Nex-N1 is the flagship release of the Nex-N1 series — a post-trained model designed to highlight agent autonomy, tool use, and real-world productivity. \n\nNex-N1 demonstrates competitive performance across all evaluation scenarios, showing particularly strong results in practical coding and HTML generation tasks.",
-      "context_length": 131072,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0",
-        "input_cache_read": "0",
-        "input_cache_write": "0"
-      },
-      "top_provider": {
-        "context_length": 131072,
-        "max_completion_tokens": 163840,
         "is_moderated": false
       },
       "created_at": null
