@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-01-11T05:33:35.296179",
-  "total_count": 32,
+  "updated_at": "2026-01-12T05:37:11.820604",
+  "total_count": 31,
   "models": [
     {
       "provider": "OpenRouter",
@@ -187,27 +187,6 @@
       "top_provider": {
         "context_length": 8192,
         "max_completion_tokens": 2048,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
-      "id": "kwaipilot/kat-coder-pro:free",
-      "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
-      "description": "KAT-Coder-Pro V1 is KwaiKAT's most advanced agentic coding model in the KAT-Coder series. Designed specifically for agentic coding tasks, it excels in real-world software engineering scenarios, achieving 73.4% solve rate on the SWE-Bench Verified benchmark. \n\nThe model has been optimized for tool-use capability, multi-turn interaction, instruction following, generalization, and comprehensive capabilities through a multi-stage training process, including mid-training, supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and scalable agentic RL.",
-      "context_length": 256000,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
-      },
-      "top_provider": {
-        "context_length": 256000,
-        "max_completion_tokens": 128000,
         "is_moderated": false
       },
       "created_at": null
