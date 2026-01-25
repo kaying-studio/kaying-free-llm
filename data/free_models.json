@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-01-24T05:29:38.421312",
-  "total_count": 32,
+  "updated_at": "2026-01-25T05:34:46.886055",
+  "total_count": 33,
   "models": [
     {
       "provider": "OpenRouter",
@@ -52,15 +52,28 @@
       "context_length": 163840,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 163840,
         "max_completion_tokens": null,
+        "is_moderated": false
+      },
+      "created_at": null
+    },
+    {
+      "provider": "OpenRouter",
+      "id": "google/gemini-2.0-flash-exp:free",
+      "name": "Google: Gemini 2.0 Flash Experimental (free)",
+      "description": "Gemini Flash 2.0 offers a significantly faster time to first token (TTFT) compared to [Gemini Flash 1.5](/google/gemini-flash-1.5), while maintaining quality on par with larger models like [Gemini Pro 1.5](/google/gemini-pro-1.5). It introduces notable enhancements in multimodal understanding, coding capabilities, complex instruction following, and function calling. These advancements come together to deliver more seamless and robust agentic experiences.",
+      "context_length": 1048576,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 8192,
         "is_moderated": false
       },
       "created_at": null
@@ -73,10 +86,7 @@
       "context_length": 32768,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "audio": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 32768,
@@ -93,11 +103,7 @@
       "context_length": 131072,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 131072,
@@ -114,10 +120,7 @@
       "context_length": 32768,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "audio": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 32768,
@@ -134,10 +137,7 @@
       "context_length": 8192,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "audio": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 8192,
@@ -154,10 +154,7 @@
       "context_length": 8192,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "image": "0",
-        "audio": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 8192,
@@ -174,11 +171,7 @@
       "context_length": 32768,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 32768,
@@ -195,11 +188,7 @@
       "context_length": 32768,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 32768,
@@ -216,11 +205,7 @@
       "context_length": 131072,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 131072,
@@ -258,11 +243,7 @@
       "context_length": 131072,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 131072,
@@ -464,11 +445,7 @@
       "context_length": 32768,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 32768,
