@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-26T05:38:46.900536",
+  "updated_at": "2026-01-27T05:35:51.224972",
   "total_count": 33,
   "models": [
     {
@@ -10,11 +10,7 @@
       "context_length": 36864,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 36864,
@@ -473,11 +469,7 @@
       "context_length": 163840,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 163840,
@@ -494,11 +486,7 @@
       "context_length": 163840,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 163840,
@@ -515,15 +503,28 @@
       "context_length": 163840,
       "pricing": {
         "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
+        "completion": "0"
       },
       "top_provider": {
         "context_length": 163840,
         "max_completion_tokens": 65536,
+        "is_moderated": false
+      },
+      "created_at": null
+    },
+    {
+      "provider": "OpenRouter",
+      "id": "upstage/solar-pro-3:free",
+      "name": "Upstage: Solar Pro 3 (free)",
+      "description": "Solar Pro 3 is Upstage's powerful Mixture-of-Experts (MoE) language model. With 102B total parameters and 12B active parameters per forward pass, it delivers exceptional performance while maintaining computational efficiency. Optimized for Korean with English and Japanese support.",
+      "context_length": 128000,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 128000,
+        "max_completion_tokens": null,
         "is_moderated": false
       },
       "created_at": null
@@ -541,23 +542,6 @@
       "top_provider": {
         "context_length": 32768,
         "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
-      "id": "xiaomi/mimo-v2-flash:free",
-      "name": "Xiaomi: MiMo-V2-Flash (free)",
-      "description": "MiMo-V2-Flash is an open-source foundation language model developed by Xiaomi. It is a Mixture-of-Experts model with 309B total parameters and 15B active parameters, adopting hybrid attention architecture. MiMo-V2-Flash supports a hybrid-thinking toggle and a 256K context window, and excels at reasoning, coding, and agent scenarios. On SWE-bench Verified and SWE-bench Multilingual, MiMo-V2-Flash ranks as the top #1 open-source model globally, delivering performance comparable to Claude Sonnet 4.5 while costing only about 3.5% as much.\n\nUsers can control the reasoning behaviour with the `reasoning` `enabled` boolean. [Learn more in our docs](https://openrouter.ai/docs/use-cases/reasoning-tokens#enable-reasoning-with-default-config).",
-      "context_length": 262144,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0"
-      },
-      "top_provider": {
-        "context_length": 262144,
-        "max_completion_tokens": 65536,
         "is_moderated": false
       },
       "created_at": null
