@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-01-27T05:35:51.224972",
+  "updated_at": "2026-01-28T05:36:57.286438",
   "total_count": 33,
   "models": [
     {
@@ -15,6 +15,23 @@
       "top_provider": {
         "context_length": 36864,
         "max_completion_tokens": 36864,
+        "is_moderated": false
+      },
+      "created_at": null
+    },
+    {
+      "provider": "OpenRouter",
+      "id": "arcee-ai/trinity-large-preview:free",
+      "name": "Arcee AI: Trinity Large Preview (free)",
+      "description": "Trinity-Large-Preview is a frontier-scale open-weight language model from Arcee, built as a 400B-parameter sparse Mixture-of-Experts with 13B active parameters per token using 4-of-256 expert routing. \n\nIt excels in creative writing, storytelling, role-play, chat scenarios, and real-time voice assistance, better than your average reasoning model usually can. But we’re also introducing some of our newer agentic performance. It was trained to navigate well in agent harnesses like OpenCode, Cline, and Kilo Code, and to handle complex toolchains and long, constraint-filled prompts. \n\nThe architecture natively supports very long context windows up to 512k tokens, with the Preview API currently served at 128k context using 8-bit quantization for practical deployment. Trinity-Large-Preview reflects Arcee’s efficiency-first design philosophy, offering a production-oriented frontier model with open weights and permissive licensing suitable for real-world applications and experimentation.",
+      "context_length": 131000,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 131000,
+        "max_completion_tokens": null,
         "is_moderated": false
       },
       "created_at": null
@@ -235,23 +252,6 @@
       },
       "top_provider": {
         "context_length": 131072,
-        "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
-      "id": "mistralai/devstral-2512:free",
-      "name": "Mistral: Devstral 2 2512 (free)",
-      "description": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window.\n\nDevstral 2 supports exploring codebases and orchestrating changes across multiple files while maintaining architecture-level context. It tracks framework dependencies, detects failures, and retries with corrections—solving challenges like bug fixing and modernizing legacy systems. The model can be fine-tuned to prioritize specific languages or optimize for large enterprise codebases. It is available under a modified MIT license.",
-      "context_length": 262144,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0"
-      },
-      "top_provider": {
-        "context_length": 262144,
         "max_completion_tokens": null,
         "is_moderated": false
       },
