@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-02-06T06:00:15.027235",
-  "total_count": 30,
+  "updated_at": "2026-02-07T05:50:32.646768",
+  "total_count": 31,
   "models": [
     {
       "provider": "OpenRouter",
@@ -339,6 +339,27 @@
         "context_length": 131072,
         "max_completion_tokens": 131072,
         "is_moderated": true
+      },
+      "created_at": null
+    },
+    {
+      "provider": "OpenRouter",
+      "id": "openrouter/pony-alpha",
+      "name": "Pony Alpha",
+      "description": "Pony is a cutting-edge foundation model with strong performance in coding, agentic workflows, reasoning, and roleplay, making it well suited for hands-on coding and real-world use.\n\n**Note:** All prompts and completions for this model are logged by the provider and may be used to improve the model.",
+      "context_length": 200000,
+      "pricing": {
+        "prompt": "0",
+        "completion": "0",
+        "request": "0",
+        "image": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
+      },
+      "top_provider": {
+        "context_length": 200000,
+        "max_completion_tokens": 131000,
+        "is_moderated": false
       },
       "created_at": null
     },
