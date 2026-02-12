@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-02-11T06:11:27.672389",
-  "total_count": 32,
+  "updated_at": "2026-02-12T06:08:21.666452",
+  "total_count": 31,
   "models": [
     {
       "provider": "OpenRouter",
@@ -365,27 +365,6 @@
     },
     {
       "provider": "OpenRouter",
-      "id": "openrouter/pony-alpha",
-      "name": "Pony Alpha",
-      "description": "Pony is a cutting-edge foundation model with strong performance in coding, agentic workflows, reasoning, and roleplay, making it well suited for hands-on coding and real-world use.\n\n**Note:** All prompts and completions for this model are logged by the provider and may be used to improve the model.",
-      "context_length": 200000,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
-      },
-      "top_provider": {
-        "context_length": 200000,
-        "max_completion_tokens": 131000,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
       "id": "qwen/qwen3-4b:free",
       "name": "Qwen: Qwen3 4B (free)",
       "description": "Qwen3-4B is a 4 billion parameter dense language model from the Qwen3 series, designed to support both general-purpose and reasoning-intensive tasks. It introduces a dual-mode architecture—thinking and non-thinking—allowing dynamic switching between high-precision logical reasoning and efficient dialogue generation. This makes it well-suited for multi-turn chat, instruction following, and complex agent workflows.",
@@ -540,7 +519,7 @@
     {
       "provider": "OpenRouter",
       "id": "z-ai/glm-4.5-air:free",
-      "name": "Z.AI: GLM 4.5 Air (free)",
+      "name": "Z.ai: GLM 4.5 Air (free)",
       "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter size. GLM-4.5-Air also supports hybrid inference modes, offering a \"thinking mode\" for advanced reasoning and tool use, and a \"non-thinking mode\" for real-time interaction. Users can control the reasoning behaviour with the `reasoning` `enabled` boolean. [Learn more in our docs](https://openrouter.ai/docs/use-cases/reasoning-tokens#enable-reasoning-with-default-config)",
       "context_length": 131072,
       "pricing": {
