@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-14T05:53:23.495666",
+  "updated_at": "2026-02-15T06:00:52.797695",
   "total_count": 31,
   "models": [
     {
@@ -10,7 +10,11 @@
       "context_length": 131000,
       "pricing": {
         "prompt": "0",
-        "completion": "0"
+        "completion": "0",
+        "request": "0",
+        "image": "0",
+        "web_search": "0",
+        "internal_reasoning": "0"
       },
       "top_provider": {
         "context_length": 131000,
