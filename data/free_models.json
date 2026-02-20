@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-02-19T06:04:24.901137",
-  "total_count": 31,
+  "updated_at": "2026-02-20T06:00:33.567759",
+  "total_count": 30,
   "models": [
     {
       "provider": "OpenRouter",
@@ -36,27 +36,6 @@
       "top_provider": {
         "context_length": 131072,
         "max_completion_tokens": null,
-        "is_moderated": false
-      },
-      "created_at": null
-    },
-    {
-      "provider": "OpenRouter",
-      "id": "openrouter/aurora-alpha",
-      "name": "Aurora Alpha",
-      "description": "This is a cloaked model provided to the community to gather feedback. A reasoning model designed for speed. It is built for coding assistants, real-time conversational applications, and agentic workflows.\n\nDefault reasoning effort is set to medium for fast responses. For agentic coding use cases, we recommend changing effort to high. \n\nNote: All prompts and completions for this model are logged by the provider and may be used to improve the model.",
-      "context_length": 128000,
-      "pricing": {
-        "prompt": "0",
-        "completion": "0",
-        "request": "0",
-        "image": "0",
-        "web_search": "0",
-        "internal_reasoning": "0"
-      },
-      "top_provider": {
-        "context_length": 128000,
-        "max_completion_tokens": 50000,
         "is_moderated": false
       },
       "created_at": null
